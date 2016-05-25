@@ -23,4 +23,25 @@ describe('Test del modulo login', function () {
         });
         
     });
+    describe('Tests del filtro de contraseña',function () {
+        var PasswordFilter, config;
+        
+        beforeEach(inject(function (PasswordFilterFilter, _config_) {
+            PasswordFilter = PasswordFilterFilter;
+            config = _config_;
+        }));
+        
+        it('Test OK: La contraseña del filtro esta bien formada',function () {
+            var mail = 'abcdfghij';
+            
+            expect(PasswordFilter(password)).toBe(false);
+        });
+        
+        it('Test KO: La contraseña del filtro esta mal formada', function () {
+            var mail = 'p';
+            
+            expect(PasswordFilter(password)).toBe(config.msgError.invalidPassword);
+        });
+        
+    });
 });

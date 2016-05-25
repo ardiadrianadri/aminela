@@ -10,7 +10,6 @@ function getStates() {
 }
 
 function loginRun (routerHelper) {
-    //comentario tonto
     routerHelper.configureStates(getStates(),'login');
 }
 
