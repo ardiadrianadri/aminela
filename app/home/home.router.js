@@ -11,7 +11,7 @@ function getStates (){
 }
 
 function homeRun (routerHelper){
-    routerHelper.configureStates(getStates(),'home');
+    routerHelper.configureStates(getStates());
 }
 
 module.exports=angular.module('home',[]).run(['routerHelper', homeRun]);
