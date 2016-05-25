@@ -4,14 +4,18 @@ function getStates() {
         config:{
             template: require('./login.template.html'),
             url:'/login',
+            controller: 'LoginCtrl',
             controllerAs:"login"
         }
     }];
 }
 
+
+
 function loginRun (routerHelper) {
     routerHelper.configureStates(getStates(),'login');
 }
+
 
 
 module.exports=angular.module('login',[]).run(['routerHelper',loginRun]);

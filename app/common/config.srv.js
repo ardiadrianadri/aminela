@@ -1,10 +1,12 @@
 function Config (){
     return {
         validation:{
-            email: /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+            email: /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
+            pass: /^.{2,}$/
         },
         msgError:{
-            invalidMail:'Mail mal formado'
+            invalidMail:'Mail mal formado',
+            invalidPass:'Password mal formado'
         }
     };
 }
