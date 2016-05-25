@@ -32,13 +32,13 @@ describe('Test del modulo login', function () {
         }));
         
         it('Test OK: La contraseña del filtro esta bien formada',function () {
-            var mail = 'abcdfghij';
+            var password = 'abcdfghij';
             
             expect(PasswordFilter(password)).toBe(false);
         });
         
         it('Test KO: La contraseña del filtro esta mal formada', function () {
-            var mail = 'p';
+            var password = 'p';
             
             expect(PasswordFilter(password)).toBe(config.msgError.invalidPassword);
         });
