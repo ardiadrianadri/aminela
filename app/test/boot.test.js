@@ -12,7 +12,9 @@ require('../home/home.ctrl');
 require('../home/home.test');
 require('./config.srv');
 require('../login/login.router');
+require('../login/login.ctrl');
 require('../login/login.fltr');
+require('../login/pass.fltr');
 require('../login/login.test');
 require('../login/password.fltr');
 

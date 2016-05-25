@@ -1,3 +1,5 @@
+
+
 describe('Test del modulo login', function () {
 	//Comentario tonto
    beforeEach(window.module('app'));
@@ -23,25 +25,26 @@ describe('Test del modulo login', function () {
         });
         
     });
-    describe('Tests del filtro de contraseña',function () {
-        var PasswordFilter, config;
-        
-        beforeEach(inject(function (PasswordFilterFilter, _config_) {
-            PasswordFilter = PasswordFilterFilter;
-            config = _config_;
-        }));
-        
-        it('Test OK: La contraseña del filtro esta bien formada',function () {
-            var password = 'abcdfghij';
-            
-            expect(PasswordFilter(password)).toBe(false);
-        });
-        
-        it('Test KO: La contraseña del filtro esta mal formada', function () {
-            var password = 'p';
-            
-            expect(PasswordFilter(password)).toBe(config.msgError.invalidPassword);
-        });
-        
-    });
+    describe('Tests del filtro de pass',function () {
+    	var PassFilter, config;
+
+    	beforeEach(inject(function (PassFilterFilter, _config_) {
+    	PassFilter = PassFilterFilter;
+    	config = _config_;
+    	}));
+
+    	it('Test OK: El pass del filtro esta bien formado',function () {
+    	var pass = '1234aa##';
+
+    	expect(PassFilter(pass)).toBe(false);
+    	});
+
+    	it('Test KO: El pass del filtro esta mal formado', function () {
+    	var pass = 'a';
+
+    	expect(PassFilter(pass)).toBe(config.msgError.invalidPass);
+    	});
+
+    	});
+
 });
