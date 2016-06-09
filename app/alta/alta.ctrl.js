@@ -36,4 +36,4 @@ function AltaCtrl($filter,AltaSrv,$state) {
     };
 }
 
-module.exports = angular.module('alta').controller('AltaCtrl', ['$filter','AltaSrv','$state','alta', AltaCtrl]);
+module.exports = angular.module('alta').controller('AltaCtrl', ['$filter','AltaSrv','$state', AltaCtrl]);
