@@ -1,10 +1,13 @@
 function PassFilter (config) {
-    return function (pass){
+    return function (pass, pass2){
         return (config.validation.pass.test(pass))?
-            false:
+            (pass2!=="")?
+                (pass===pass2)?
+                    false:
+                    config.msgError.differentPasswords:
+                config.msgError.invalidPass:
             config.msgError.invalidPass;
     };
 }
 
-
-module.exports=angular.module('login').filter('PassFilter',['config',PassFilter]);
+module.exports=angular.module('alta').filter('PassFilter',['config',PassFilter]);

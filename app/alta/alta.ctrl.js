@@ -1,4 +1,4 @@
-function LoginCtrl($filter,LoginSrv,$state) {
+function AltaCtrl($filter,AltaSrv,$state) {
 
     //ZONA DE DICCIONARIO
     var vm = this;

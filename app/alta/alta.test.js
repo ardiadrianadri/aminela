@@ -34,15 +34,31 @@ describe('Test del modulo login', function () {
     	}));
 
     	it('Test OK: El pass del filtro esta bien formado',function () {
-    	var pass = '1234aa##';
-
-    	expect(PassFilter(pass)).toBe(false);
+            var pass = '1234aa##';
+            var pass2 = '1234aa##';
+            
+            expect(PassFilter(pass, pass2)).toBe(false);
     	});
 
-    	it('Test KO: El pass del filtro esta mal formado', function () {
-    	var pass = 'a';
+        it('Test KO: Los pass del filtro estan bien formados pero son distintos',function () {
+            var pass = '1234aa##';
+            var pass2 = '1235aa##';
 
-    	expect(PassFilter(pass)).toBe(config.msgError.invalidPass);
+            expect(PassFilter(pass, pass2)).toBe(config.msgError.differentPasswords);
+        });
+
+        it('Test KO: Los pass del filtro estan bien formados pero son distintos',function () {
+            var pass = '1234aa##';
+            var pass2 = '';
+
+            expect(PassFilter(pass, pass2)).toBe(config.msgError.invalidPass);
+        });
+
+    	it('Test KO: El pass del filtro esta mal formado', function () {
+            var pass = 'a';
+            var pass2 = '';
+            
+    	expect(PassFilter(pass, pass2)).toBe(config.msgError.invalidPass);
     	});
 
     });
@@ -57,10 +73,10 @@ describe('Test del modulo login', function () {
         }));
 
         it('Test OK: Probemos que obtenemos los datos correctos si el login es un exito',function () {
-           var logingData ={
-               email:'pepe@email.com',
-               password:'12345'
-           };
+            var logingData = {
+                email:'pepe@email.com',
+                password:'12345'
+            };
 
             var servConfig = config.backService.loginConf;
             var service = new LoginSrv();
@@ -80,7 +96,7 @@ describe('Test del modulo login', function () {
         });
         
         it ('Test KO: Probar error en caso de 404',function () {
-                var logingData ={
+                var logingData = {
                     email:'pepe@email.com',
                     password:'12345'
                 };
