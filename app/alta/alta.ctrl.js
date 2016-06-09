@@ -6,18 +6,19 @@ function AltaCtrl($filter,AltaSrv,$state) {
 
     vm.email = "";
     vm.password = "";
+    vm.password2 = "";
 
     //FUNCIONES AUXILIARES
 
     //EVENTOS
 
     vm.altaAction = function () {
-        var disable = ($filter('PassFilter')(vm.password)) || ($filter('EmailFilter')(vm.email));
+        var disable = ($filter('PassFilter')(vm.password)) || ($filter('Pass2Filter')(vm.password, vm.password2)) || ($filter('EmailFilter')(vm.email));
         var service = new AltaSrv();
         
         if (!disable) {
-            service.doLogin(vm.email, vm.password).then(function(data){
-               console.log('Alta con exito'); 
+            service.checkData(vm.email, vm.password, vm.password2).then(function(data) {
+                console.log('Alta con exito');
             },function (error) {
                 vm.errorMsg = error.usuario.msg;
             });
@@ -27,6 +28,7 @@ function AltaCtrl($filter,AltaSrv,$state) {
     vm.clean = function () {
         vm.email="";
         vm.password="";
+        vm.password2="";
     };
     
     vm.alta = function () {

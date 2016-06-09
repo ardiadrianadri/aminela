@@ -5,7 +5,7 @@ function getStates() {
             template: require('./alta.template.html'),
             url:'/alta',
             controller: 'AltaCtrl',
-            controllerAs:"alta"
+            controllerAs:'alta'
         }
     }];
 }
