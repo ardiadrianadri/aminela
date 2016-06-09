@@ -1,4 +1,4 @@
-function loginSrvFactory ($http,$q,config){
+function loginSrvFactory ($http,$q,config,ErrorManager){
 
     function loginClass () {
         this.doLogin = function (email, psswd) {
@@ -13,7 +13,11 @@ function loginSrvFactory ($http,$q,config){
             $http(serviceConfig).then(function (result) {
                 defer.resolve(result.data);
             }, function (error) {
-                console.log(JSON.stringify(error));
+                
+                var customError = new ErrorManager();
+
+                defer.reject(customError.getCustomError);
+                
             });
 
             return defer.promise;
@@ -23,4 +27,4 @@ function loginSrvFactory ($http,$q,config){
     return loginClass;
 }
 
-module.exports=angular.module('login').factory('LoginSrv',['$http','$q','config',loginSrvFactory]);
+module.exports=angular.module('login').factory('LoginSrv',['$http','$q','config','ErrorManager',loginSrvFactory]);

@@ -78,6 +78,30 @@ describe('Test del modulo login', function () {
             
             $httpBackend.flush();
         });
+        
+        it('Test KO 400: Probemos que obtenemos un error 400',function () {
+           var logingData ={
+               email:'pepe',
+               password:'1'
+           };
+
+            var servConfig = config.backService.loginConf;
+            var service = new LoginSrv();
+                
+            $httpBackend.expect(servConfig.method, servConfig.url, logingData).respond(function () {
+                return [400,{data:'Petición incorrecta'},{}];
+            });
+
+            service.doLogin(logingData.email, logingData.password).
+            then(function (result) {
+                 expect(false).toBe(true);
+            }, function (error) {
+               
+                expect(result.data).toBe('Petición incorrecta');
+            });
+            
+            $httpBackend.flush();
+        });
     });
 
 });
