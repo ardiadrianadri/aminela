@@ -45,6 +45,39 @@ describe('Test del modulo login', function () {
     	expect(PassFilter(pass)).toBe(config.msgError.invalidPass);
     	});
 
-    	});
+    });
+
+    describe('Test del servicio de login',function () {
+        var $httpBackend, LoginSrv, config;
+
+        beforeEach(inject(function (_$httpBackend_, _LoginSrv_, _config_) {
+            $httpBackend = _$httpBackend_;
+            LoginSrv = _LoginSrv_;
+            config = _config_;
+        }));
+
+        it('Test OK: Probemos que obtenemos los datos correctos si el login es un exito',function () {
+           var logingData ={
+               email:'pepe@email.com',
+               password:'12345'
+           };
+
+            var servConfig = config.backService.loginConf;
+            var service = new LoginSrv();
+                
+            $httpBackend.expect(servConfig.method, servConfig.url, logingData).respond(function () {
+                return [200,{data:'OK'},{}];
+            });
+
+            service.doLogin(logingData.email, logingData.password).
+            then(function (result) {
+                expect(result.data).toBe('OK');
+            }, function (error) {
+                expect(false).toBe(true);
+            });
+            
+            $httpBackend.flush();
+        });
+    });
 
 });

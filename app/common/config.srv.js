@@ -7,6 +7,20 @@ function Config (){
         msgError:{
             invalidMail:'Mail mal formado',
             invalidPass:'Password mal formado'
+        },
+        backService:{
+            loginConf:{
+                method:'GET',
+                url:'app/mocks/loginSrv.json',
+                responseType: 'json'
+            }
+        },
+        serviceError:{
+            "404":"No se encuentra el servicio, pongase en contacto con el administrador",
+            "401":"Usuario o password incorrecto",
+            "403":"No tienes permisos para acceder",
+            "500":"Fallo del sistema pongase en contacto con el administrador",
+            default:"Buena suerta y que la fuerza te acompañe"
         }
     };
 }
