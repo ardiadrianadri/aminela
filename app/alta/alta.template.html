@@ -38,8 +38,8 @@
         </div>
         <div class="row">
             <div class="col-xs-offset-4 col-xs-4">
-                <input type="password" class="form-control"  ng-model="alta.password2" id="pssdInput2"/>
-                <span class="label label-danger" ng-if="alta.password2|PassFilter">{{alta.password2|Pass2Filter}}</span>
+                <input type="password2" class="form-control"  ng-model="alta.password2" id="pssdInput2"/>
+                <span class="label label-danger" ng-if="alta.password2|Pass2Filter">{{alta.password2|Pass2Filter}}</span>
             </div>
         </div>
     </div>
@@ -48,10 +48,8 @@
     </div>
     <div class="row">
         <div class="col-xs-offset-4 col-xs-2">
-            <button type="button" ng-click="alta.altaAction()" class="btn btn-default">Alta usuario</button>
-        </div>
-        <div class="col-xs-2">
-            <button type="button" ng-click="alta.clean()" class="btn btn-default">Reset</button>&nbsp;
+            <button type="button" ng-click="alta.clean()" class="btn btn-default">Reset</button>&nbsp;  
+            <button type="button" ng-click="alta.altaAction()" ng-class="['btn', 'btn-primary', {'disabled':((alta.password|PassFilter) || (alta.email|EmailFilter))}]">Alta Usuario</button>
         </div>
     </div>
 </div>
