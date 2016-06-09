@@ -1,3 +1,12 @@
+<div class="well well-sm" ng-if="login.errorMsg">
+    <h1><span class="label label-danger">{{login.errorMsg}}</span></h1>
+    <div class="row">
+        <div class="col-xs-offset-4 col-xs-4">
+            <button type="button" class="btn btn-default" ng-click="login.errorMsg=null">Cerrar</button>
+        </div>
+    </div>
+</div>
+
 <div class="well well-sm">
     <div class="row">
         <div class="col-xs-offset-4 col-xs-4">
@@ -34,11 +43,11 @@
     </div>
     <div class="row">
         <div class="col-xs-offset-4 col-xs-2">
-            <button type="button" class="btn btn-default">Alta usuario</button>
+            <button type="button" ng-click="login.alta()" class="btn btn-default">Alta usuario</button>
         </div>
         <div class="col-xs-2">
-            <button type="button" class="btn btn-default">Reset</button>&nbsp;
-            <button type="button" class="btn btn-primary">Login</button>
+            <button type="button" ng-click="login.clean()" class="btn btn-default">Reset</button>&nbsp;
+            <button type="button" ng-click="login.loginAction()" ng-class="['btn', 'btn-primary', {'disabled':((login.password|PassFilter) || (login.email|EmailFilter))}]">Login</button>
         </div>
     </div>
 </div>
