@@ -24,4 +24,4 @@ function loginSrvFactory ($http,$q,config,ErrorManager){
     return loginClass;
 }
 
-module.exports=angular.module('login').factory('LoginSrv',['$http','$q','config', 'ErrorManager',loginSrvFactory]);
+module.exports=angular.module('login').factory('LoginSrv',['$http','$q','config','ErrorManager',loginSrvFactory]);
