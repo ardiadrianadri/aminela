@@ -1,18 +1,14 @@
-<div class="well well-sm" ng-if="login.errorMsg">
-    <h1><span class="label label-danger">{{login.errorMsg}}</span></h1>
+<div class="well well-sm" ng-if="alta.errorMsg">
+    <h1><span class="label label-danger">{{alta.errorMsg}}</span></h1>
     <div class="row">
         <div class="col-xs-offset-4 col-xs-4">
-            <button type="button" class="btn btn-default" ng-click="login.errorMsg=null">Cerrar</button>
+            <button type="button" class="btn btn-default" ng-click="alta.errorMsg=null">Cerrar</button>
         </div>
     </div>
 </div>
 
 <div class="well well-sm">
-    <div class="row">
-        <div class="col-xs-offset-4 col-xs-4">
-            <img src="app/img/menu_set_quiniela.png" />
-            <h1>Aminiela</h1>
-        </div>
+    
     </div>
     <div ng-class="['form-group']">
         <div class="row">
@@ -22,8 +18,8 @@
         </div>
         <div class="row">
             <div class="col-xs-offset-4 col-xs-4">
-                <input type="text" class="form-control" ng-model="login.email" id="inputEmail"/>
-                <span class="label label-danger" ng-if="login.email|EmailFilter">{{login.email|EmailFilter}}</span>
+                <input type="text" class="form-control" ng-model="alta.email" id="inputEmail"/>
+                <span class="label label-danger" ng-if="alta.email|EmailFilter">{{alta.email|EmailFilter}}</span>
             </div>
         </div>
         <div class="row">
@@ -33,8 +29,19 @@
         </div>
         <div class="row">
             <div class="col-xs-offset-4 col-xs-4">
-                <input type="password" class="form-control"  ng-model="login.password" id="pssdInput"/>
-                <span class="label label-danger" ng-if="login.password|PassFilter">{{login.password|PassFilter}}</span>
+                <input type="password" class="form-control"  ng-model="alta.password" id="pssdInput"/>
+                <span class="label label-danger" ng-if="alta.password|PassFilter">{{alta.password|PassFilter}}</span>
+            </div>
+        </div>
+         <div class="row">
+            <div class="col-xs-offset-4 col-xs-4">
+                <label class="control-label" for="pssdInput">Verificación Password</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-offset-4 col-xs-4">
+                <input type="password" class="form-control"  ng-model="alta.password" id="pssdInput"/>
+                <span class="label label-danger" ng-if="alta.password|PassFilter">{{alta.password|PassFilter}}</span>
             </div>
         </div>
     </div>
@@ -43,11 +50,10 @@
     </div>
     <div class="row">
         <div class="col-xs-offset-4 col-xs-2">
-            <button type="button" ng-click="login.alta()" class="btn btn-default">Alta usuario</button>
+            <button type="button" ng-click="alta.alta()" class="btn btn-default">Alta usuario</button>
         </div>
         <div class="col-xs-2">
-            <button type="button" ng-click="login.clean()" class="btn btn-default">Reset</button>&nbsp;
-            <button type="button" ng-click="login.loginAction()" ng-class="['btn', 'btn-primary', {'disabled':((login.password|PassFilter) || (login.email|EmailFilter))}]">Login</button>
+            <button type="button" ng-click="alta.clean()" class="btn btn-default">Reset</button>&nbsp;  
         </div>
     </div>
 </div>
