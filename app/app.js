@@ -3,5 +3,6 @@ module.exports = angular.module('app',[
     'blocks.router',
     'home',
     'login',
+    'alta',
     'common'
 ]);

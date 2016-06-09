@@ -1,11 +1,11 @@
 function PassFilter (config) {
     return function (pass, pass2){
         return (config.validation.pass.test(pass))?
-            (pass2!=="")?
+            (pass2)?
                 (pass===pass2)?
                     false:
                     config.msgError.differentPasswords:
-                config.msgError.invalidPass:
+                false:
             config.msgError.invalidPass;
     };
 }

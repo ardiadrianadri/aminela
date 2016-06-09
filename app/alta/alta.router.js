@@ -1,6 +1,6 @@
 function getStates() {
     return [{
-        state:'login',
+        state:'alta',
         config:{
             template: require('./alta.template.html'),
             url:'/alta',
@@ -10,11 +10,8 @@ function getStates() {
     }];
 }
 
-
-
 function altaRun (routerHelper) {
-    routerHelper.configureStates(getStates(),'alta');
+    routerHelper.configureStates(getStates());
 }
-
 
 module.exports=angular.module('alta',[]).run(['routerHelper',altaRun]);
