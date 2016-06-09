@@ -7,4 +7,4 @@ function PassFilter (config) {
 }
 
 
-module.exports=angular.module('login').filter('PassFilter',['config',PassFilter]);
+module.exports=angular.module('alta').filter('PassFilter',['config',PassFilter]);

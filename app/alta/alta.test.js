@@ -1,6 +1,6 @@
 
 
-describe('Test del modulo login', function () {
+describe('Test del modulo alta', function () {
 	
    beforeEach(window.module('app'));
     
@@ -47,29 +47,29 @@ describe('Test del modulo login', function () {
 
     });
 
-    describe('Test del servicio de login',function () {
-        var $httpBackend, LoginSrv, config;
+    describe('Test del servicio de alta',function () {
+        var $httpBackend, AltaSrv, config;
 
-        beforeEach(inject(function (_$httpBackend_, _LoginSrv_, _config_) {
+        beforeEach(inject(function (_$httpBackend_, _AltaSrv_, _config_) {
             $httpBackend = _$httpBackend_;
-            LoginSrv = _LoginSrv_;
+            AltaSrv = _AltaSrv_;
             config = _config_;
         }));
 
-        it('Test OK: Probemos que obtenemos los datos correctos si el login es un exito',function () {
-           var logingData ={
+        it('Test OK: Probemos que obtenemos los datos correctos si el alta es un exito',function () {
+           var altagData ={
                email:'pepe@email.com',
                password:'12345'
            };
 
-            var servConfig = config.backService.loginConf;
-            var service = new LoginSrv();
+            var servConfig = config.backService.altaConf;
+            var service = new AltaSrv();
                 
-            $httpBackend.expect(servConfig.method, servConfig.url, logingData).respond(function () {
+            $httpBackend.expect(servConfig.method, servConfig.url, altagData).respond(function () {
                 return [200,{data:'OK'},{}];
             });
 
-            service.doLogin(logingData.email, logingData.password).
+            service.doAlta(altagData.email, altagData.password).
             then(function (result) {
                 expect(result.data).toBe('OK');
             }, function (error) {
@@ -80,7 +80,7 @@ describe('Test del modulo login', function () {
         });
         
         it ('Test KO: Probar error en caso de 404',function () {
-                var logingData ={
+                var altaData ={
                     email:'pepe@email.com',
                     password:'12345'
                 };

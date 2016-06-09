@@ -13,6 +13,12 @@ function Config (){
                 method:'GET',
                 url:'app/mocks/loginSrv.json',
                 responseType: 'json'
+            },
+            altaConf:{
+                method:'GET',
+                url:'app/mocks/altaSrv.json',
+                responseType:'json'
+                
             }
         },
         serviceError:{

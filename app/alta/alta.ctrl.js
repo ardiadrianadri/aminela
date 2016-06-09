@@ -1,4 +1,4 @@
-function LoginCtrl($filter,LoginSrv,$state) {
+function AltaCtrl($filter,AltaSrv,$state,alta) {
 
     //ZONA DE DICCIONARIO
     var vm = this;
@@ -11,7 +11,7 @@ function LoginCtrl($filter,LoginSrv,$state) {
 
     //EVENTOS
 
-    vm.loginAction = function () {
+    vm.altaAction = function () {
         var disable = ($filter('PassFilter')(vm.password)) || ($filter('EmailFilter')(vm.email));
         var service = new LoginSrv();
         
@@ -34,4 +34,4 @@ function LoginCtrl($filter,LoginSrv,$state) {
     };
 }
 
-module.exports = angular.module('login').controller('LoginCtrl', ['$filter','LoginSrv','$state', LoginCtrl]);
+module.exports = angular.module('login').controller('LoginCtrl', ['$filter','LoginSrv','$state','alta', LoginCtrl]);
