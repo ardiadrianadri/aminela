@@ -6,4 +6,4 @@ function EmailFilter (config) {
     };
 }
 
-module.exports=angular.module('login').filter('EmailFilter',['config',EmailFilter]);
+module.exports=angular.module('alta').filter('EmailFilter',['config',EmailFilter]);
