@@ -19,6 +19,7 @@ require('./alta/alta.router');
 require('./alta/alta.ctrl');
 require('./alta/alta.fltr');
 require('./alta/pass.fltr');
+require('./alta/pass2.fltr');
 require('./alta/alta.srv');
 
 var app = require('./app');
