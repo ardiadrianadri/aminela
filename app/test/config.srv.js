@@ -2,16 +2,11 @@ function Config (){
     return {
         validation:{
             email: /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
-
-            password: /^[\p{Z}\s]*(?:[^\p{Z}\s][\p{Z}\s]*){3,}/
+            pass: /^[\p{Z}\s]*(?:[^\p{Z}\s][\p{Z}\s]*){3,}/
         },
         msgError:{
             invalidMail:'Mail mal formado',
-<<<<<<< HEAD
             invalidPassword:'Contraseña no valida'
-
-=======
-            invalidPass:'Password mal formado'
         },
         backService:{
             loginConf:{
@@ -26,7 +21,6 @@ function Config (){
             "403":"No tienes permisos para acceder",
             "500":"Fallo del sistema pongase en contacto con el administrador",
             default:"Buena suerta y que la fuerza te acompañe"
->>>>>>> 45592fa31459abb2af567bb88f1265f1558432eb
         }
     };
 }
