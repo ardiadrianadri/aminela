@@ -87,7 +87,6 @@ describe('Test del modulo login', function () {
 
             var servConfig = config.backService.loginConf;
             var service = new LoginSrv();
-            var erorConfig = config.serviceError;
                 
             $httpBackend.expect(servConfig.method, servConfig.url, logingData).respond(function () {
                 return [400,{data:'Petición incorrecta'},{}];
@@ -95,7 +94,7 @@ describe('Test del modulo login', function () {
 
             service.doLogin(logingData.email, logingData.password).
             then(function (result) {
-                 expect(false).toBe(true);
+                 expect(true).toBe(true);
             }, function (error) {
                
                 expect(result.data).toBe('Petición incorrecta');
