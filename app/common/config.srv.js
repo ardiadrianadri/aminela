@@ -6,7 +6,8 @@ function Config (){
         },
         msgError:{
             invalidMail:'Mail mal formado',
-            invalidPass:'Password mal formado'
+            invalidPass:'Password mal formado',
+            differentPasswords:'Passwords distintos'
         },
         backService:{
             loginConf:{

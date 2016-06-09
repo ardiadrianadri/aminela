@@ -1,4 +1,5 @@
-function AltaCtrl($filter,AltaSrv,$state,alta) {
+
+function AltaCtrl($filter,AltaSrv,$state) {
 
     //ZONA DE DICCIONARIO
     var vm = this;
