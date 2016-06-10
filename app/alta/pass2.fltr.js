@@ -1,8 +1,10 @@
 function Pass2Filter (config) {
     return function (pass, pass2) {
-        return (pass===pass2)?
-            false:
-            config.msgError.differentPasswords;
+        return (config.validation.pass.test(pass))?
+            (pass===pass2)?
+                false:
+                config.msgError.differentPasswords:
+        config.msgError.invalidPass;
     };
 }
 
