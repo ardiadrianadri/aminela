@@ -1,5 +1,5 @@
 function EmailFilter (config) {
-    return function (email){
+    return function (email) {
         return (config.validation.email.test(email))?
             false:
             config.msgError.invalidMail;

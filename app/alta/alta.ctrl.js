@@ -16,7 +16,7 @@ function AltaCtrl($filter,AltaSrv,$state) {
         var service = new AltaSrv();
         
         if (!disable) {
-            service.checkData(vm.email, vm.password).then(function(data){
+            service.checkData(vm.email, vm.password, vm.password2).then(function(data){
                console.log('Alta con exito');
             },function (error) {
                 vm.errorMsg = error.usuario.msg;

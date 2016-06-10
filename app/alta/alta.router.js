@@ -3,9 +3,9 @@ function getStates() {
         state:'alta',
         config:{
             template: require('./alta.template.html'),
-            url:'/alta',
+            url: '/alta',
             controller: 'AltaCtrl',
-            controllerAs:'alta'
+            controllerAs: 'alta'
         }
     }];
 }

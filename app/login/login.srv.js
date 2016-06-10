@@ -5,9 +5,9 @@ function loginSrvFactory ($http,$q,config,ErrorManager){
             var defer = $q.defer();
             var serviceConfig = config.backService.loginConf;
             
-            serviceConfig.data={
-                email:email,
-                password:psswd
+            serviceConfig.data = {
+                email: email,
+                password: psswd
             };
 
             $http(serviceConfig).then(function (result) {
@@ -16,7 +16,6 @@ function loginSrvFactory ($http,$q,config,ErrorManager){
                 var service = new ErrorManager();
                 defer.reject(service.getCustomError(error));
             });
-
             return defer.promise;
         }
     }

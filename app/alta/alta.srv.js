@@ -5,24 +5,21 @@ function altaSrvFactory ($http,$q,config,ErrorManager){
             var defer = $q.defer();
             var serviceConfig = config.backService.altaConf;
             
-            serviceConfig.data={
-                email:email,
-                password:psswd,
-                password2:psswd2
+            serviceConfig.data = {
+                email: email,
+                password: psswd,
+                password2: psswd2
             };
 
             $http(serviceConfig).then(function (result) {
                 defer.resolve(result.data);
             }, function (error) {
-
                 var service = new ErrorManager();
                 defer.reject(service.getCustomError(error));
             });
-
             return defer.promise;
         }
     }
-    
     return altaClass;
 }
 

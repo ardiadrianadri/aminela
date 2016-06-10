@@ -1,5 +1,5 @@
 function Pass2Filter (config) {
-    return function (pass, pass2){
+    return function (pass, pass2) {
         return (pass===pass2)?
             false:
             config.msgError.differentPasswords;
