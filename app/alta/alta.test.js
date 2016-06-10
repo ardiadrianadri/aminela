@@ -93,7 +93,7 @@ describe('Test del modulo alta', function () {
                 return [200,{data:'OK'},{}];
             });
 
-            service.doAlta(altagData.email, altagData.password).
+            service.checkData(altaData.email, altaData.password, altaData.password2).
             then(function (result) {
                 expect(result.data).toBe('OK');
             }, function (error) {
@@ -118,7 +118,8 @@ describe('Test del modulo alta', function () {
                     return [404,{},{}];
                 });
                 
-                service.doAlta(laltaData.email, altaData.password).then(function (result) {
+                service.checkData(altaData.email, altaData.password, altaData.password2).
+            then(function (result) {
                    expect(false).toBe(true); 
                 }, function (error) {
                     expect(error.usuario.msg).toBe(errorConfig['404']);
@@ -139,7 +140,8 @@ describe('Test del modulo alta', function () {
                 return [401,{},{}];
             });
 
-            service.doAlta(altaData.email, altaData.password).then(function (result) {
+            service.checkData(altaData.email, altaData.password, altaData.password2).
+            then(function (result)  {
                 expect(false).toBe(true);
             }, function (error) {
                 expect(error.usuario.msg).toBe(errorConfig['401']);
@@ -160,7 +162,8 @@ describe('Test del modulo alta', function () {
                 return [403,{},{}];
             });
 
-            service.doAlta(altaData.email, altaData.password).then(function (result) {
+           service.checkData(altaData.email, altaData.password, altaData.password2).
+            then(function (result)  {
                 expect(false).toBe(true);
             }, function (error) {
                 expect(error.usuario.msg).toBe(errorConfig['403']);
@@ -181,7 +184,8 @@ describe('Test del modulo alta', function () {
                 return [500,{},{}];
             });
 
-            service.doAlta(altaData.email, altaData.password).then(function (result) {
+           service.checkData(altaData.email, altaData.password, altaData.password2).
+            then(function (result)  {
                 expect(false).toBe(true);
             }, function (error) {
                 expect(error.usuario.msg).toBe(errorConfig['500']);
@@ -198,11 +202,12 @@ describe('Test del modulo alta', function () {
             var errorConfig = config.serviceError;
             var service = new AltaSrv();
 
-            $httpBackend.expect(servConfig.method, servConfig.url, logingData).respond(function () {
+            $httpBackend.expect(servConfig.method, servConfig.url, altaData).respond(function () {
                 return [600,{},{}];
             });
 
-            service.doLogin(logingData.email, logingData.password).then(function (result) {
+            service.checkData(altaData.email, altaData.password, altaData.password2).
+            then(function (result)  {
                 expect(false).toBe(true);
             }, function (error) {
                 expect(error.usuario.msg).toBe(errorConfig.default);
