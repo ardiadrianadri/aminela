@@ -2,17 +2,23 @@ function Config (){
     return {
         validation:{
             email: /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i,
-            pass: /^.{2,}$/
+            pass: /^[\p{Z}\s]*(?:[^\p{Z}\s][\p{Z}\s]*){3,}/
         },
         msgError:{
             invalidMail:'Mail mal formado',
-            invalidPass:'Password mal formado'
+            invalidPassword:'Contraseña no valida'
         },
         backService:{
             loginConf:{
                 method:'POST',
                 url:'/test',
                 responseType: 'json'
+            },
+             altaConf:{
+                method:'POST',
+                url:'/alta',
+                responseType:'json'
+                
             }
         },
         serviceError:{

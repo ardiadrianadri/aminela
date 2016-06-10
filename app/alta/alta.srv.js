@@ -1,13 +1,14 @@
-function loginSrvFactory ($http,$q,config,ErrorManager){
+function altaSrvFactory ($http,$q,config,ErrorManager){
 
-    function loginClass () {
-        this.doLogin = function (email, psswd) {
+    function altaClass () {
+        this.checkData = function (email, psswd, psswd2) {
             var defer = $q.defer();
-            var serviceConfig = config.backService.loginConf;
+            var serviceConfig = config.backService.altaConf;
             
             serviceConfig.data = {
                 email: email,
-                password: psswd
+                password: psswd,
+                password2: psswd2
             };
 
             $http(serviceConfig).then(function (result) {
@@ -19,8 +20,7 @@ function loginSrvFactory ($http,$q,config,ErrorManager){
             return defer.promise;
         }
     }
-    
-    return loginClass;
+    return altaClass;
 }
 
-module.exports=angular.module('login').factory('LoginSrv',['$http','$q','config','ErrorManager',loginSrvFactory]);
+module.exports=angular.module('alta').factory('AltaSrv',['$http','$q','config','ErrorManager',altaSrvFactory]);

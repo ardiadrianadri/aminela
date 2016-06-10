@@ -6,13 +6,20 @@ function Config (){
         },
         msgError:{
             invalidMail:'Mail mal formado',
-            invalidPass:'Password mal formado'
+            invalidPass:'Password mal formado',
+            differentPasswords:'Passwords distintos'
         },
         backService:{
             loginConf:{
                 method:'GET',
                 url:'app/mocks/loginSrv.json',
                 responseType: 'json'
+            },
+            altaConf:{
+                method:'GET',
+                url:'app/mocks/altaSrv.json',
+                responseType:'json'
+                
             }
         },
         serviceError:{
