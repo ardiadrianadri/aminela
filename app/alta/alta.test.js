@@ -26,39 +26,46 @@ describe('Test del modulo alta', function () {
         
     });
     describe('Tests del filtro de pass',function () {
-    	var PassFilter, config;
+    	var PassFilter, Pass2Filter, config;
 
-    	beforeEach(inject(function (PassFilterFilter, _config_) {
-    	PassFilter = PassFilterFilter;
-    	config = _config_;
+    	beforeEach(inject(function (PassFilterFilter, Pass2FilterFilter, _config_) {
+            PassFilter = PassFilterFilter;
+            Pass2Filter = Pass2FilterFilter;
+            config = _config_;
     	}));
 
-    	it('Test OK: El pass del filtro esta bien formado',function () {
+        it('Test OK: El pass del filtro esta bien formado',function () {
+            var pass = '1234aa##';
+
+            expect(PassFilter(pass)).toBe(false);
+        });
+
+    	it('Test OK: Los pass del filtro estan bien formados y coinciden',function () {
             var pass = '1234aa##';
             var pass2 = '1234aa##';
             
-            expect(PassFilter(pass, pass2)).toBe(false);
+            expect(Pass2Filter(pass, pass2)).toBe(false);
     	});
 
         it('Test KO: Los pass del filtro estan bien formados pero son distintos',function () {
             var pass = '1234aa##';
             var pass2 = '1235aa##';
 
-            expect(PassFilter(pass, pass2)).toBe(config.msgError.differentPasswords);
+            expect(Pass2Filter(pass, pass2)).toBe(config.msgError.differentPasswords);
         });
 
         it('Test KO: Los pass del filtro estan bien formados pero son distintos',function () {
             var pass = '1234aa##';
             var pass2 = '';
 
-            expect(PassFilter(pass, pass2)).toBe(config.msgError.invalidPass);
+            expect(Pass2Filter(pass, pass2)).toBe(config.msgError.invalidPass);
         });
 
     	it('Test KO: El pass del filtro esta mal formado', function () {
             var pass = 'a';
             var pass2 = '';
             
-    	expect(PassFilter(pass, pass2)).toBe(config.msgError.invalidPass);
+    	expect(Pass2Filter(pass, pass2)).toBe(config.msgError.invalidPass);
     	});
 
     });
