@@ -75,13 +75,14 @@ describe('Test del modulo alta', function () {
         it('Test OK: Probemos que obtenemos los datos correctos si el alta es un exito',function () {
            var altaData ={
                email:'pepe@email.com',
-               password:'12345'
+               password:'12345',
+               password2:'12345'
            };
 
             var servConfig = config.backService.altaConf;
             var service = new AltaSrv();
                 
-            $httpBackend.expect(servConfig.method, servConfig.url, altagData).respond(function () {
+            $httpBackend.expect(servConfig.method, servConfig.url, altaData).respond(function () {
                 return [200,{data:'OK'},{}];
             });
 
@@ -97,7 +98,7 @@ describe('Test del modulo alta', function () {
         
         it ('Test KO: Probar error en caso de 404',function () {
 
-                var laltaData = {
+                var altaData = {
                     email:'pepe@email.com',
                     password:'12345'
                 };
