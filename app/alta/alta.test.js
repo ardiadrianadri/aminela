@@ -23,8 +23,8 @@ describe('Test del modulo alta', function () {
             
             expect(EmailFilter(mail)).toBe(config.msgError.invalidMail);
         });
-        
     });
+    
     describe('Tests del filtro de pass',function () {
     	var PassFilter, Pass2Filter, config;
 
@@ -67,7 +67,6 @@ describe('Test del modulo alta', function () {
             
     	expect(Pass2Filter(pass, pass2)).toBe(config.msgError.invalidPass);
     	});
-
     });
 
     describe('Test del servicio de alta',function () {
@@ -297,7 +296,5 @@ describe('Test del modulo alta', function () {
             expect(ctrl.email).toBe("");
             expect(ctrl.password).toBe("");
         });
-
     });
-
 });
