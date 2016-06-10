@@ -20,6 +20,10 @@ require('./login/pass.fltr');
 require('./login/login.srv');
 require('./alta/passRepeat.fltr');
 require('./menu/menu.router');
+require('./menu/menu.srv');
+require('./menu/acciones.srv');
+require('./menu/menu.ctrl');
+require('./menu/menu.drctv');
 require('./dashboard/dashboard.router');
 
 var app = require('./app');

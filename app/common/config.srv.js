@@ -19,6 +19,11 @@ function Config (){
                 method:'GET',
                 url:'app/mocks/altaSrv.json',
                 responseType: 'json'
+            },
+            menuServ:{
+                method:'GET',
+                url:'app/mocks/menuDsc.json',
+                responseType: 'json'
             }
         },
         serviceError:{

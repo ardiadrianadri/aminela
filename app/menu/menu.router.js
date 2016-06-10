@@ -4,7 +4,9 @@ function getStates() {
         config:{
             template: require('./menu.template.html'),
             url:'/menu',
-            abstract: true
+            abstract: true,
+            controllerAs:'menuAbs',
+            controller:'MenuCtrl'
         }
     }];
 }
